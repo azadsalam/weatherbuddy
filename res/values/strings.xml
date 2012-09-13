@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Welcome to Weather Buddy !!</string>
+    <string name="app_name">Weather Buddy</string>
+    <string name="btn_weather_text">Weather Update !!</string>
+    <string name="btn_myforecast_text">My Forecast</string>
+    <string name="btn_forecast_text">Forecast</string>
+    <string name="btn_back_text">Back</string>
+    <string name="btn_exit_text">Exit</string>
+    <string name="tv_wdate_text">Date </string>
+    <string name="tv_mintemp_text">Minimum Temperature</string>
+    <string name="tv_maxtemp_text">Maximum Temperature</string>
+    <string name="tv_rainfall_text">Rainfall</string>
+    <string name="tv_humidity_text">Humidity</string>
+
+</resources>
