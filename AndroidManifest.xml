@@ -24,8 +24,8 @@
         </activity>
         <activity android:name="MyForecastActivity"></activity>
         <activity android:name="ForecastActivity"></activity>
-        <activity android:name="WeatherActivity"></activity>
         <activity android:name="LocalizedForecast"></activity>
+        <activity android:name="WeatherUpdateActivity"></activity>
     </application>
 
 </manifest>

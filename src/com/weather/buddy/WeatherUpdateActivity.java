@@ -23,7 +23,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class WeatherActivity extends Activity {
+public class WeatherUpdateActivity extends Activity {
 
 	//TextView tvTest;
 	Button back_btn;

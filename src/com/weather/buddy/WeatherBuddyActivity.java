@@ -168,7 +168,7 @@ public class WeatherBuddyActivity extends Activity implements OnClickListener{
 		
 		else if(v.getId() == R.id.btn_weather_id) // weather button
 		{
-			Intent intent = new Intent(WeatherBuddyActivity.this, WeatherActivity.class);
+			Intent intent = new Intent(WeatherBuddyActivity.this, WeatherUpdateActivity.class);
 			
 			Bundle extra = new Bundle();
 			
