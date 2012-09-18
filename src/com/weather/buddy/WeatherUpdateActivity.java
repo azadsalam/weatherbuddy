@@ -15,8 +15,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+
 import android.R.string;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.widget.Button;
@@ -26,6 +28,8 @@ import android.widget.Toast;
 public class WeatherUpdateActivity extends Activity {
 
 	//TextView tvTest;
+	FetchWeatherUpdateAsyncTask fetchWeatherUpdateAsyncTask;
+	ProgressDialog pd;
 	Button back_btn;
 	Double latitude=90.0,longtitude=24.0;
 	TextView tv_weather_text;
@@ -53,14 +57,10 @@ public class WeatherUpdateActivity extends Activity {
        
        tv_weather_text = (TextView) findViewById(R.id.tv_weather_text_id);
        
-       try {
-    	   getWeatherUpdate();
-	} catch (Exception e) {
-		// TODO Auto-generated catch block
-		tv_weather_text.setText(e.toString());
-		e.printStackTrace();
-		Toast.makeText(this,"CAN NOT CONNECT TO SERVER "+e.toString(),Toast.LENGTH_LONG).show();
-	}
+       fetchWeatherUpdateAsyncTask = new FetchWeatherUpdateAsyncTask(this);
+       
+       getWeatherUpdate();
+	
        
    }
    /*
@@ -80,99 +80,16 @@ public class WeatherUpdateActivity extends Activity {
 	   	   //tvTest.setText("Your Current Position is:\n" + latLongString);
 	  }
    */
-   public void getWeatherUpdate() throws JSONException{ 
+   public void getWeatherUpdate() 
+   { 
 
-		
-	   String text ="INIT";
-       // Create a new HttpClient and Post Header
-
-       HttpClient httpclient = new DefaultHttpClient();
-
-       HttpPost httppost = new HttpPost("http://10.0.2.2/agro/index.php/android");
-
-       JSONObject json = new JSONObject();
-
-       try {
-
-           // JSON data:
-
-           json.put("lat", latitude);
-           json.put("long", longtitude);
-
-           //json.put("position", "sysdev");
-
-
-
-           JSONArray postjson=new JSONArray();
-
-           postjson.put(json);
-
-
-           // Post the data:
-
-           httppost.setHeader("json",json.toString());
-
-           httppost.getParams().setParameter("jsonpost",postjson);
-
-           // Execute HTTP Post Request
-
-           System.out.print(json);
-
-           HttpResponse response = httpclient.execute(httppost);
-
-           // for JSON:
-
-           if(response != null)
-           {
-
-               InputStream is = response.getEntity().getContent();
-               BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-               StringBuilder sb = new StringBuilder();
-               String line = null;
-               
-               try 
-               {
-                   while ((line = reader.readLine()) != null) 
-                   {
-                       sb.append(line + "\n");
-                   }
-
-               } 
-               catch (IOException e) 
-               {
-                   e.printStackTrace();
-               } 
-               finally {
-                   try {
-                       is.close();
-                   } catch (IOException e) {
-                       e.printStackTrace();
-                   }
-               }
-               text = sb.toString();
-           }
-           
-           
-           
-           showWeatherUpdate(parseJson(text));
-          
-          // Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG).show();
-
-       }catch (ClientProtocolException e) {
-
-           // TODO Auto-generated catch block
-
-       } catch (IOException e) {
-
-           // TODO Auto-generated catch block
-
-       }
+	   fetchWeatherUpdateAsyncTask.execute(latitude,longtitude);
+	   
 
    }
    
    private String parseJson(String text) {
-	  
-	   
+
 	   //wdate,rainfall,mintemp,maxtemp,humidity
 	   //text.indexOf("wdate")
 	   //text.indexOf("wdate", start)
@@ -194,9 +111,17 @@ public class WeatherUpdateActivity extends Activity {
 	   
    }
    	
-   private void showWeatherUpdate(String str) {
-	   tv_weather_text.setText(str);
+ 
+   
+   public void showProcessDialog(String msg) 
+   {
+   	 pd = ProgressDialog.show(this, "", msg);
    }
    
+   public void publishResult(String result) 
+   {
+	    tv_weather_text.setText(parseJson(result));
+		pd.dismiss();
+   }
 }
 
