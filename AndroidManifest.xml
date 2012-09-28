@@ -4,7 +4,7 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <uses-sdk android:minSdkVersion="10" />
+    <uses-sdk android:minSdkVersion="8" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.INTERNET"/>
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
@@ -26,6 +26,7 @@
         <activity android:name="ForecastActivity"></activity>
         <activity android:name="LocalizedForecast"></activity>
         <activity android:name="WeatherUpdateActivity"></activity>
+        <activity android:name="FacebookIntegration"></activity>
     </application>
 
 </manifest>

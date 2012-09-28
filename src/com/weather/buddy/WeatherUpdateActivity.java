@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
-
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
@@ -82,18 +81,12 @@ public class WeatherUpdateActivity extends Activity {
    */
    public void getWeatherUpdate() 
    { 
-
 	   fetchWeatherUpdateAsyncTask.execute(latitude,longtitude);
-	   
-
    }
    
    private String parseJson(String text) {
 
-	   //wdate,rainfall,mintemp,maxtemp,humidity
-	   //text.indexOf("wdate")
-	   //text.indexOf("wdate", start)
-	   
+
 	   StringTokenizer stringTokenizer = new StringTokenizer(text,"\"{},:");
 	   
 	   String key="",value="",str="\n";
