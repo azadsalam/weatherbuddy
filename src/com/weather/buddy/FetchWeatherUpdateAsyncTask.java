@@ -42,11 +42,12 @@ public class FetchWeatherUpdateAsyncTask extends AsyncTask<Double, String, Strin
 
        HttpClient httpclient = new DefaultHttpClient();
 
-       HttpPost httppost = new HttpPost("http://10.0.2.2/agro/index.php/android");
+       HttpPost httppost = new HttpPost("http://10.0.2.2/cpb/index.php/android");
 
        JSONObject json = new JSONObject();
 
-       try {
+       try 
+       {
 
 	           // JSON data:
 

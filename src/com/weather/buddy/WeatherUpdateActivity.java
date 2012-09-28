@@ -20,6 +20,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -84,7 +85,8 @@ public class WeatherUpdateActivity extends Activity {
 	   fetchWeatherUpdateAsyncTask.execute(latitude,longtitude);
    }
    
-   private String parseJson(String text) {
+   private String parseJson(String text) 
+   {
 
 
 	   StringTokenizer stringTokenizer = new StringTokenizer(text,"\"{},:");
@@ -97,6 +99,10 @@ public class WeatherUpdateActivity extends Activity {
 		   {
 		      value = stringTokenizer.nextToken();
 		   
+		      if(value == null || value.isEmpty() || value.equals("null")) 
+		    	  value = new String("Not Found");
+		      
+		      //Log.d("value", value);
 		      str = str.concat("\n"+ key + " : " + value);
 		   }
 	   }
