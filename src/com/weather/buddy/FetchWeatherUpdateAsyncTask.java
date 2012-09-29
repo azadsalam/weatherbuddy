@@ -116,7 +116,9 @@ public class FetchWeatherUpdateAsyncTask extends AsyncTask<Double, String, Strin
 	   		// TODO Auto-generated catch block
 	   		
 	   		e.printStackTrace();
+	   		callingActivity.publishResult("CAN NOT CONNECT TO SERVER");
 	   		return "CAN NOT CONNECT TO SERVER ";
+	   		
 	   	}
 	   	
 		
