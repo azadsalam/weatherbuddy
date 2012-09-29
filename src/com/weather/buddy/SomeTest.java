@@ -15,7 +15,14 @@ public class SomeTest extends AndroidTestCase {
        Assert.assertTrue(1 + 1 == 3);
     }
     
-    public void testNew() throws Throwable {
+    public void testNew() throws Throwable 
+    {
         Assert.assertTrue(5 + 5 == 10);
-     }
+    }
+    
+    public void testWeatherUpdate() throws Throwable 
+    {
+       
+    }
+    
 }

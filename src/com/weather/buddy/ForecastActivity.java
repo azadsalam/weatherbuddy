@@ -107,8 +107,7 @@ public class ForecastActivity extends MapActivity {
 		extra.putDouble("lon", g.getLongitudeE6());
 		intent.putExtras(extra);
 		
-		//intent.putExtra("lat", lat);
-		//intent.putExtra("lon", lon);
+
 		startActivity(intent);
 	}
 	

@@ -44,8 +44,8 @@ public class WeatherUpdateActivity extends Activity {
        latitude = bundle.getDouble("lat");
        longtitude = bundle.getDouble("lon");
        
-       StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-       StrictMode.setThreadPolicy(policy); 
+    //   StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+    //   StrictMode.setThreadPolicy(policy); 
        
        back_btn  = (Button) findViewById(R.id.btn_back_id);
        back_btn.setOnClickListener(new BackButtonHandler());
