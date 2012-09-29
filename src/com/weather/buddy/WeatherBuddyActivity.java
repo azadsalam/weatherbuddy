@@ -145,8 +145,17 @@ public class WeatherBuddyActivity extends Activity implements OnClickListener{
 		
 		if(v.getId() == R.id.btn_myforecast_id) // my forecast button
 		{
-			Intent intent = new Intent(WeatherBuddyActivity.this, MyForecastActivity.class);
+			Intent intent = new Intent(this, LocalizedForecast.class);
+			
+			Bundle extra = new Bundle();
+			
+			extra.putDouble("lat", lat);
+			extra.putDouble("lon", lon);
+			intent.putExtras(extra);
+			
+
 			startActivity(intent);
+
 			//Toast.makeText(getApplicationContext(),"My Forecast", Toast.LENGTH_LONG).show();
 		}
 		
