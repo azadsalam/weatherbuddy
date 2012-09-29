@@ -13,6 +13,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 public class FetchForecastUpdateAsyncTask extends AsyncTask<Double, String, String> {
 
@@ -42,7 +43,7 @@ public class FetchForecastUpdateAsyncTask extends AsyncTask<Double, String, Stri
 
        HttpClient httpclient = new DefaultHttpClient();
 
-       HttpPost httppost = new HttpPost("http://10.0.2.2/cpb/index.php/android");
+       HttpPost httppost = new HttpPost("http://10.0.2.2/cpb/index.php/forecastForAndroid");
 
        JSONObject json = new JSONObject();
 
@@ -131,6 +132,8 @@ public class FetchForecastUpdateAsyncTask extends AsyncTask<Double, String, Stri
 	protected void onPostExecute(String result) {
 		// TODO Auto-generated method stub
 		super.onPostExecute(result);
+		
+		Log.d("FORECAST", result);
 		callingActivity.publishResult(result);
 	}
 	

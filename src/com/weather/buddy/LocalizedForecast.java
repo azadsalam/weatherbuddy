@@ -29,6 +29,9 @@ public class LocalizedForecast extends Activity {
         lat = bundle.getDouble("lat");
         lon = bundle.getDouble("lon");
         
+        lat /= 1E6;
+        lon /= 1E6;
+        
         tv_main = (TextView)findViewById(R.id.tv_localized_forecast_main);
         
         fetchForecastUpdateAsyncTask = new FetchForecastUpdateAsyncTask(this);
