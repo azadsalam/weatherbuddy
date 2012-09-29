@@ -1,4 +1,6 @@
-package com.weather.buddy;
+
+  package com.weather.buddy;
+ 
 
 import android.app.Activity;
 import android.content.Intent;
