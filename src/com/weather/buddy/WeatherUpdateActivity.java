@@ -33,16 +33,15 @@ import android.widget.Toast;
 
 public class WeatherUpdateActivity extends Activity {
 
-	public static HashMap<String,Double> testMap ;
+	public static HashMap<String,String> testMap ;
 	
-	public int result = 1;
-	
+	public int result ;
 	
 	//TextView tvTest;
 	FetchWeatherUpdateAsyncTask fetchWeatherUpdateAsyncTask;
 	ProgressDialog pd;
 	Button back_btn;
-	Double latitude=90.0,longtitude=24.0;
+	Double latitude=90.41,longtitude=23.7;
 	TextView tv_weather_text;
 	Bundle bundle;
 	 /** Called when the activity is first created. */
@@ -55,6 +54,13 @@ public class WeatherUpdateActivity extends Activity {
        latitude = bundle.getDouble("lat");
        longtitude = bundle.getDouble("lon");
        
+       if(TestSetup.testEnabled)
+       {
+    	   latitude = 23.77;
+           longtitude = 90.41;
+         
+       }
+       Log.d("TEST","From test : LAT LONG SET FROM TEST");
     //   StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
     //   StrictMode.setThreadPolicy(policy); 
        
@@ -99,11 +105,9 @@ public class WeatherUpdateActivity extends Activity {
    private String parseJson(String text) 
    {
 
-	   if(TestSetup.testEnabled)
-	   {
-		   result = 1;
-	   }
-
+	   
+	   Log.d("TEST","IN PARSE JSON");
+	   
 	   StringTokenizer stringTokenizer = new StringTokenizer(text,"\"{},:");
 	   
 	   String key="",value="",str="\n";
@@ -119,6 +123,15 @@ public class WeatherUpdateActivity extends Activity {
 		      
 		      //Log.d("value", value);
 		      str = str.concat("\n"+ key + " : " + value);
+		      
+		      if(TestSetup.testEnabled)
+		      {
+		    	  Log.d("TEST"," PUT : KEY :"+key + " -> "+value);
+		    	  if(key.endsWith("Date"))
+		    		  testMap.put(key, value);
+		    	  else
+		    		  testMap.put(key, value);
+		      }
 		   }
 	   }
 	   return str;
@@ -130,7 +143,7 @@ public class WeatherUpdateActivity extends Activity {
    {
 	   Assert.assertTrue(TestSetup.testEnabled);
 	   
-	   testMap = new HashMap<String, Double>();
+	   testMap = new HashMap<String, String>();
 	   
 	  
    }
