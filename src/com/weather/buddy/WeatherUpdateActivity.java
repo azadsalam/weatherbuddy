@@ -4,7 +4,12 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.StringTokenizer;
+
+import junit.framework.Assert;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
@@ -20,6 +25,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.test.suitebuilder.TestMethod;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
@@ -27,6 +33,11 @@ import android.widget.Toast;
 
 public class WeatherUpdateActivity extends Activity {
 
+	public static HashMap<String,Double> testMap ;
+	
+	public int result = 1;
+	
+	
 	//TextView tvTest;
 	FetchWeatherUpdateAsyncTask fetchWeatherUpdateAsyncTask;
 	ProgressDialog pd;
@@ -88,6 +99,10 @@ public class WeatherUpdateActivity extends Activity {
    private String parseJson(String text) 
    {
 
+	   if(TestSetup.testEnabled)
+	   {
+		   result = 1;
+	   }
 
 	   StringTokenizer stringTokenizer = new StringTokenizer(text,"\"{},:");
 	   
@@ -111,6 +126,14 @@ public class WeatherUpdateActivity extends Activity {
    }
    	
  
+   public static void initialiseTest() 
+   {
+	   Assert.assertTrue(TestSetup.testEnabled);
+	   
+	   testMap = new HashMap<String, Double>();
+	   
+	  
+   }
    
    public void showProcessDialog(String msg) 
    {
@@ -122,5 +145,7 @@ public class WeatherUpdateActivity extends Activity {
 	    tv_weather_text.setText(parseJson(result));
 		pd.dismiss();
    }
+   
+   
 }
 
