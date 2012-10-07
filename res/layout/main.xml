@@ -48,4 +48,14 @@
         android:layout_marginTop="20dp"
         android:text="@string/btn_exit_text" />
  -->
+
+    <Button
+        android:id="@+id/btn_friend_wupdate"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/btn_friend_wupdate_text" />
+
 </LinearLayout>

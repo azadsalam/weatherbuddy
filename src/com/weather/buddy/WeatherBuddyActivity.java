@@ -30,7 +30,7 @@ public class WeatherBuddyActivity extends Activity implements OnClickListener{
 	private static Location location;
 	private String providerName;
 	
-	Button my_forecast_btn,forecast_btn,weather_btn;
+	Button my_forecast_btn,forecast_btn,my_weather_btn,weather_btn;
 	Button exit_btn;
 	
     /** Called when the activity is first created. */
@@ -47,11 +47,13 @@ public class WeatherBuddyActivity extends Activity implements OnClickListener{
         /*INITIALISING BUTTONS and ASSIGNING ACTION LISTENERS*/
         my_forecast_btn = (Button) findViewById(R.id.btn_myforecast_id);
         forecast_btn = (Button) findViewById(R.id.btn_forecast_id);
-        weather_btn = (Button) findViewById(R.id.btn_weather_id);
+        my_weather_btn = (Button) findViewById(R.id.btn_weather_id);
+        weather_btn = (Button) findViewById(R.id.btn_friend_wupdate);
         //exit_btn = (Button) findViewById(R.id.btn_exit_id);
         
         my_forecast_btn.setOnClickListener(this);
         forecast_btn.setOnClickListener(this);
+        my_weather_btn.setOnClickListener(this);
         weather_btn.setOnClickListener(this);
         //exit_btn.setOnClickListener(this);
         
@@ -189,6 +191,8 @@ public class WeatherBuddyActivity extends Activity implements OnClickListener{
 			startActivity(intent);
 			//Toast.makeText(getApplicationContext(),"Weather", Toast.LENGTH_LONG).show();
 		}
+		
+		
 		/*
 		else if(v.getId() == R.id.btn_exit_id) // exit button
 		{

@@ -67,6 +67,7 @@ public class FetchWeatherUpdateAsyncTask extends AsyncTask<Double, String, Strin
 	           // Execute HTTP Post Request
 
            //System.out.print(json);
+           
 
            HttpResponse response = httpclient.execute(httppost);
 

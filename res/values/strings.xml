@@ -3,7 +3,7 @@
 
     <string name="hello">Welcome to Weather Buddy !!</string>
     <string name="app_name">Weather Buddy</string>
-    <string name="btn_weather_text">Weather Update !!</string>
+    <string name="btn_weather_text">My Weather Update </string>
     <string name="btn_myforecast_text">My Forecast</string>
     <string name="btn_forecast_text">Forecast</string>
     <string name="btn_back_text">Back</string>
@@ -13,5 +13,6 @@
     <string name="tv_maxtemp_text">Maximum Temperature</string>
     <string name="tv_rainfall_text">Rainfall</string>
     <string name="tv_humidity_text">Humidity</string>
+    <string name="btn_friend_wupdate_text">Weather Update</string>
 
 </resources>
