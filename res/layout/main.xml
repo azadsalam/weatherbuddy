@@ -15,8 +15,8 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
         android:text="@string/btn_myforecast_text"/>
 
     <Button
@@ -24,8 +24,8 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
         android:text="@string/btn_forecast_text" 
         
         />
@@ -35,8 +35,8 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
         android:text="@string/btn_weather_text" />
 <!-- 
     <Button
@@ -54,8 +54,18 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
         android:text="@string/btn_friend_wupdate_text" />
+
+    <Button
+        android:id="@+id/btn_forecast_map_id"
+		android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+
+        android:text="@string/btnForecastMap" />
 
 </LinearLayout>

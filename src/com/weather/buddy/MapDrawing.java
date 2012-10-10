@@ -14,12 +14,12 @@ import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
 import com.google.android.maps.Projection;
 
-public class DrawingLayer extends Overlay {
+public class MapDrawing extends Overlay {
 	
 	
 	Double lat,lon;
 	ForecastActivity ma;
-	public DrawingLayer(Double lat,Double lon,ForecastActivity ma)
+	public MapDrawing(Double lat,Double lon,ForecastActivity ma)
 	{	
 		this.lat= lat;
 		this.lon = lon;

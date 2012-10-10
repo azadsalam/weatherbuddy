@@ -29,6 +29,7 @@
         <activity android:name="WeatherUpdateActivity"></activity>
         <activity android:name="FacebookIntegration"></activity>
         <uses-library android:name="android.test.runner" />
+        <activity android:name="ForecastMapActivity"></activity>
     </application>
 <instrumentation android:name="android.test.InstrumentationTestRunner"
        android:targetPackage="com.weather.buddy" android:label="Tests for Weather Buddy!" />

@@ -102,7 +102,45 @@ public class WeatherUpdateActivity extends Activity {
 	   fetchWeatherUpdateAsyncTask.execute(latitude,longtitude);
    }
    
+   
    private String parseJson(String text) 
+   {
+	   /*
+	                 $tosend['Date']=$row->wdate;
+             $tosend['Rainfall']=$row->rainfall;
+             $tosend['Minimimum Temp']=$row->mintemp;
+             $tosend['Maximum Temp']=$row->maxtemp;
+             $tosend['Humidity']=$row->humidity; */
+	 String ret="";
+	 try 
+	 {
+		JSONObject jsonObject = new JSONObject(text);
+		
+		String date = jsonObject.getString("date"); 
+		String rainfall = jsonObject.getString("rainfall");
+		String minTemp = jsonObject.getString("mintemp");
+		String maxTemp = jsonObject.getString("maxtemp");
+		String humidity = jsonObject.getString("humidity");
+		
+		
+		if(!date.isEmpty()) ret += ("Date : "+date+"\n");
+		if(!rainfall.isEmpty())ret += ("Rainfall : "+rainfall+"\n");
+		if(!minTemp.isEmpty())ret += ("Minimum Temperature : "+minTemp+"\n");
+		if(!maxTemp.isEmpty())ret += ("Maximum Temperature : "+maxTemp+"\n");
+		if(!humidity.isEmpty())ret += ("Humidity : "+humidity+"\n");
+		
+		//ret += ("Minimum Temperature : "+minTemp+"\n");
+		return ret;
+	 } 
+	 catch (JSONException e) {
+		 
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		return "No Data Found";
+	 }
+	 
+   }
+   private String parseJsonExtra(String text) 
    {
 
 	   
